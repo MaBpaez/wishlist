@@ -1,0 +1,118 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}Detalles del producto{% endblock %}
+
+{% block main %}
+<div class="container px-4 py-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'inventory:products_list' %}">Products</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Product Details</li>
+    </ol>
+  </nav>
+
+  <h2 class="pb-2 border-bottom">Product Details</h2>
+  <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+    <div class="col d-flex flex-column align-items-start gap-2">
+      <h2 class="fw-bold text-body-emphasis">{{ product.name }}</h2>
+      <div class="card shadow-sm">
+        <svg
+          class="bd-placeholder-img card-img-top"
+          width="100%"
+          height="225"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Placeholder: Thumbnail"
+          preserveAspectRatio="xMidYMid slice"
+          focusable="false"
+        >
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#55595c" />
+          <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+        </svg>
+        <div class="card-body">
+          <p class="card-text">
+            This is a wider card with supporting text below as a natural lead-in to additional content. This content is
+            a little bit longer {{ usuario.username }} {{ usuario.is_authenticated }} {{ usuario.wish_items.all }}.
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Add Cart</button>
+              <button
+                type="button"
+                class="btn btn-sm btn-outline-secondary wishlist"
+                data-bs-toggle="popover"
+                data-bs-title="Lista de deseos"
+                data-bs-content="Producto añadido a tu lista de deseos"
+              >
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="row row-cols-1 row-cols-sm-2 g-4">
+        <div class="col d-flex flex-column gap-2">
+          <div
+            class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3"
+          >
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#collection" />
+            </svg>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+          <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div
+            class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3"
+          >
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#gear-fill" />
+            </svg>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+          <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div
+            class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3"
+          >
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#speedometer" />
+            </svg>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+          <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div
+            class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3"
+          >
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#table" />
+            </svg>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+          <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock main %}
+
+{% block javascript %}
+<script>
+  $(".wishlist").click(function(){
+    console.log('OK')
+    $('.bi.bi-heart').toggleClass('text-danger');
+  });
+</script>
+{% endblock javascript %}
