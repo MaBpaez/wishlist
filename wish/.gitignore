@@ -118,6 +118,9 @@ dmypy.json
 # Xournal++
 *.xopp
 
+# Pycharm
+.idea/
+
 #
 credentials.json
 datadump.json
